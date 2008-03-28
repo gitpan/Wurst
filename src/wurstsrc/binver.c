@@ -1,6 +1,6 @@
 /*
  * 30 May 2002
- * $Id: binver.c,v 1.11 2007/09/28 11:26:30 torda Exp $
+ * $Id: binver.c,v 1.1 2007/09/28 16:57:07 mmundry Exp $
  * We need a version marker on our coordinate files.
  * We want a revision number, but if we include the string in our
  * file, coord.c, the version control system will grab hold of

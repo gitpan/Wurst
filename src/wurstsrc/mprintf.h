@@ -2,7 +2,7 @@
  * 3 Sep 96
  * Because of the reference to FILE, only works after including
  * <stdio.h>.
- * rcsid = "$Id: mprintf.h,v 1.2 2007/07/08 18:00:34 torda Exp $"
+ * rcsid = "$Id: mprintf.h,v 1.1 2007/09/28 16:57:10 mmundry Exp $"
  */
 
 #ifndef __MPRINTF_H

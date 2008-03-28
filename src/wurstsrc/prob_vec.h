@@ -8,7 +8,7 @@
  * probabilities.
  * It may be normalised so that the probabilities sum to 1.0, or
  * so that the sum of squares sums to 1.0.
- * rcsid = $Id: prob_vec.h,v 1.7 2007/05/27 13:06:32 torda Exp $
+ * rcsid = $Id: prob_vec.h,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 
 #ifndef PROB_VEC_H

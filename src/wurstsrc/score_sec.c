@@ -3,7 +3,7 @@
  * Score Sequence / structures according to secondary
  * structure information.
  *
- * $Id: score_sec.c,v 1.9 2007/09/28 12:11:57 torda Exp $
+ * $Id: score_sec.c,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  */
 
 #include <math.h>

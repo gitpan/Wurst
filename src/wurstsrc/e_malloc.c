@@ -4,7 +4,7 @@
  * exactly the same arguments as the library functions, but give
  * us the file and line number on failure.
  *
- * $Id: e_malloc.c,v 1.4 2007/09/28 12:12:01 torda Exp $
+ * $Id: e_malloc.c,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  */
 
 #include <errno.h>

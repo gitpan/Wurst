@@ -1,6 +1,6 @@
 /*
  * 14 June 2005
- * rcsid = $Id: score_probvec.h,v 1.4 2006/02/22 14:06:49 torda Exp $
+ * rcsid = $Id: score_probvec.h,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  */
 
 #ifndef SCORE_PROBVEC_H

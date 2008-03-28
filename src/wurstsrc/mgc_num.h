@@ -1,5 +1,5 @@
 /* 27 May 96
- * rcsid = $Id: mgc_num.h,v 1.2 2007/07/08 18:19:50 torda Exp $
+ * rcsid = $Id: mgc_num.h,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  * Can only be included after <stdio.h>
  */
 

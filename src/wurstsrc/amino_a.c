@@ -1,6 +1,6 @@
 /*
  * 23 March 2001
- * $Id: amino_a.c,v 1.15 2007/09/28 11:10:42 torda Exp $
+ * $Id: amino_a.c,v 1.1 2007/09/28 16:57:04 mmundry Exp $
  */
 
 #include <ctype.h>

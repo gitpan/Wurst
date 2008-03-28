@@ -1,7 +1,7 @@
 /*
  * 10 Jan 2002
  * Read parameters for the score_fx function.
- * $Id: param_fx.c,v 1.11 2007/09/28 12:11:59 torda Exp $
+ * $Id: param_fx.c,v 1.1 2007/09/28 16:57:03 mmundry Exp $
  */
 
 #include <stdio.h>

@@ -3,7 +3,7 @@
  * Build a model from an alignment.
  * This is in its own file since it has reasonable ground to know
  * about coordinates, pair_sets and sequences.
- * $Id: model.c,v 1.33 2007/09/28 12:12:00 torda Exp $
+ * $Id: model.c,v 1.1 2007/09/28 16:57:13 mmundry Exp $
  */
 
 #include <stdio.h>

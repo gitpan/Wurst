@@ -1,7 +1,7 @@
 /*
  * 26 February 2002
  * Public interface to sec struct data reading routines.
- * $Id: read_sec_i.h,v 1.2 2007/09/28 12:11:58 torda Exp $
+ * $Id: read_sec_i.h,v 1.1 2007/09/28 16:57:04 mmundry Exp $
  */
 #ifndef READ_SEC_I_H
 #define READ_SEC_I_H

@@ -4,7 +4,7 @@
  * We do all output via scr_printf() which fills a buffer and
  * hands it to the interpreter.
  *
- * $Id: pair_set_p.c,v 1.13 2007/09/28 12:12:00 torda Exp $
+ * $Id: pair_set_p.c,v 1.2 2008/01/20 17:07:32 torda Exp $
  */
 
 #include <ctype.h>
@@ -156,6 +156,9 @@ get_seq_id ( struct pair_set *pair_set, struct seq *s1, struct seq *s2)
     int **p;
     size_t i;
     p = pair_set->indices;
+
+    if(s1->format == THOMAS) seq_thomas2std (s1);
+    if(s2->format == THOMAS) seq_thomas2std (s2);
 
     length = aligned = ident = 0;
     for ( i = 0; i < pair_set->n; i++ ) {

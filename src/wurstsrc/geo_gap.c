@@ -1,6 +1,6 @@
 /*
  * 20 May 2002
- * $Id: geo_gap.c,v 1.5 2007/09/28 12:12:01 torda Exp $
+ * $Id: geo_gap.c,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 
 #include <math.h>

@@ -2,7 +2,7 @@
  * 25 September 2001
  * Interface to pair_set operations.
  * This does not show the internals of the structure.
- * rcsid = "$Id: pair_set_i.h,v 1.8 2007/06/01 12:22:18 mmosisch Exp $"
+ * rcsid = "$Id: pair_set_i.h,v 1.1 2007/09/28 16:57:06 mmundry Exp $"
  */
 
 #ifndef PAIR_SET_I_H

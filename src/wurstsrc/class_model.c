@@ -1,5 +1,5 @@
 /*
- * $Id: class_model.c,v 1.20 2007/09/28 12:12:02 torda Exp $
+ * $Id: class_model.c,v 1.1 2007/09/28 16:57:08 mmundry Exp $
  */
 #include <stdio.h>
 #include <stdlib.h>

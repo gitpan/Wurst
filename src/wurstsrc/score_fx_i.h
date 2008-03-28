@@ -1,7 +1,7 @@
 /*
  * 10 Jan 2002
  * Public interface to the score_fx score function.
- * $Id: score_fx_i.h,v 1.2 2004/02/10 12:15:54 torda Exp $
+ * $Id: score_fx_i.h,v 1.1 2007/09/28 16:57:10 mmundry Exp $
  */
 
 #ifndef SCORE_FX_I_H

@@ -1,7 +1,7 @@
 /*
  * 26 March 2002
  * Vector operations which we need in more than one place.
- * $Id: vec.c,v 1.3 2007/09/28 12:11:55 torda Exp $
+ * $Id: vec.c,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 
 #include <math.h>

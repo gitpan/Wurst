@@ -3,7 +3,7 @@
  * These are silly functions, but they are for testing
  * installation.
  *
- * $Id: silly.c,v 1.3 2007/09/28 12:11:56 torda Exp $
+ * $Id: silly.c,v 1.1 2007/09/28 16:57:04 mmundry Exp $
  */
 
 

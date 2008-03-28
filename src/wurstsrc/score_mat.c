@@ -1,7 +1,7 @@
 /*
  * 1 March 2002
  * For manipulations of score matrices.
- * $Id: score_mat.c,v 1.16 2007/09/28 12:11:57 torda Exp $
+ * $Id: score_mat.c,v 1.1 2007/09/28 16:57:13 mmundry Exp $
  */
 
 #include <math.h>

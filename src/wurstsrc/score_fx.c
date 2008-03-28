@@ -6,7 +6,7 @@
  *  - convert the phi's from my structure into conv*phi
  *  - put in a check for BAD_ANGLE
  * 
- * $Id: score_fx.c,v 1.14 2007/09/28 12:11:57 torda Exp $
+ * $Id: score_fx.c,v 1.1 2007/09/28 16:57:09 mmundry Exp $
  */
 
 #include <stdio.h>

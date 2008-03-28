@@ -1,6 +1,6 @@
 /*
  * 15 Sep 2001
- * rcsid = $Id: score_smat.h,v 1.6 2004/02/26 11:40:20 torda Exp $
+ * rcsid = $Id: score_smat.h,v 1.1 2007/09/28 16:57:08 mmundry Exp $
  */
 #ifndef SCORE_SMAT_H
 #define SCORE_SMAT_H

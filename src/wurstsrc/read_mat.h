@@ -3,7 +3,7 @@
  * This contains prototypes which the interpreter must know about.
  * It does *not* describe the sub_mat structure. It must not be
  * dependent on knowing the sub_mat structure.
- * rcsid = $Id: read_mat.h,v 1.5 2003/09/17 07:41:05 torda Exp $
+ * rcsid = $Id: read_mat.h,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 #ifndef READ_MAT_H
 #define READ_MAT_H

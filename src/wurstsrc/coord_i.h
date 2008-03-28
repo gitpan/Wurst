@@ -2,7 +2,7 @@
  * 23 October 2001
  * This defines the interface to the coordinate routines.
  * It does *not* define the internal structures.
- * rcsid = $Id: coord_i.h,v 1.11 2007/05/11 10:14:19 schenk Exp $
+ * rcsid = $Id: coord_i.h,v 1.1 2007/09/28 16:57:10 mmundry Exp $
  */
 
 #ifndef COORD_I_H

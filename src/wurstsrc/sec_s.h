@@ -2,7 +2,7 @@
  * 24 October 2001
  * Secondary structure routines. Definitions for internal use.
  * Interface defined in sec_s_i.h
- * rcsid = $Id: sec_s.h,v 1.2 2002/03/01 05:13:11 torda Exp $
+ * rcsid = $Id: sec_s.h,v 1.1 2007/09/28 16:57:10 mmundry Exp $
  */
 
 #ifndef SEC_S_H

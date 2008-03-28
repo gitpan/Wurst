@@ -2,7 +2,7 @@
  * mid 2005
  * Gundolf Schenk code
  *
- * $Id: classifyStructure.c,v 1.13 2007/09/28 12:12:02 torda Exp $ 
+ * $Id: classifyStructure.c,v 1.1 2007/09/28 16:57:09 mmundry Exp $ 
  */
 
 #define _XOPEN_SOURCE 500              /* Necessary under solaris for M_PI */

@@ -1,6 +1,6 @@
 /*
  * 21 March 2001
- * rcsid = $Id: read_seq_i.h,v 1.9 2007/03/26 13:00:09 schenk Exp $
+ * rcsid = $Id: read_seq_i.h,v 1.1 2007/09/28 16:57:04 mmundry Exp $
  */
 #ifndef READ_SEQ_H
 #define READ_SEQ_H

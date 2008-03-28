@@ -1,5 +1,5 @@
 /* 
- * $Id: coordinfo_i.h,v 1.3 2007/09/28 12:12:01 torda Exp $
+ * $Id: coordinfo_i.h,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  */
 #ifndef COORDINFO_I_H
 #define COORDINFO_I_H

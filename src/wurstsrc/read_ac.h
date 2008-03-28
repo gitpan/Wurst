@@ -1,5 +1,5 @@
 /*
- * $Id: read_ac.h,v 1.2 2007/09/28 12:11:59 torda Exp $
+ * $Id: read_ac.h,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  */
 #ifndef READ_AC_H
 #define READ_AC_H

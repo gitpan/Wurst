@@ -1,6 +1,6 @@
 /*
  * 5 April 2002
- * rscid = $Id: rescore.h,v 1.2 2002/06/05 07:31:28 torda Exp $
+ * rscid = $Id: rescore.h,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 #ifndef RESCORE_H
 #define RESCORE_H

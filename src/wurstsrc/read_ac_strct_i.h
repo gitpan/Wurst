@@ -1,5 +1,5 @@
 /*
- * $Id: read_ac_strct_i.h,v 1.9 2007/09/28 12:11:58 torda Exp $
+ * $Id: read_ac_strct_i.h,v 1.1 2007/09/28 16:57:03 mmundry Exp $
  */
 
 #ifndef READ_AC_STRCT_I_H

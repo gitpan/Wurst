@@ -1,6 +1,6 @@
 /*
  * 4 Jan 2002
- * $Id: silly.h,v 1.2 2007/09/28 12:11:56 torda Exp $
+ * $Id: silly.h,v 1.1 2007/09/28 16:57:10 mmundry Exp $
  */
 
 #ifndef SILLY_H

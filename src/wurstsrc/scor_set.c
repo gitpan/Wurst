@@ -1,6 +1,6 @@
 /* 23-1-2004
  * scor_set functions
- * $Id: scor_set.c,v 1.6 2007/09/28 12:11:58 torda Exp $
+ * $Id: scor_set.c,v 1.1 2007/09/28 16:57:06 mmundry Exp $
 */
 
 #include <stdio.h>

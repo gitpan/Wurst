@@ -1,6 +1,6 @@
 /*
  * 20 May 2002
- * rcsid = $Id: geo_gap.h,v 1.3 2005/04/29 10:11:53 torda Exp $
+ * rcsid = $Id: geo_gap.h,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 #ifndef GEO_GAP_H
 #define GEO_GAP_H

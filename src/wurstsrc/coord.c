@@ -1,6 +1,6 @@
 /*
  * 23 Oct 2001
- * $Id: coord.c,v 1.49 2007/09/28 11:11:02 torda Exp $
+ * $Id: coord.c,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  * The struct coord is a rather central item in this code. This
  * file gathers most of the routines for creating the structure,
  * filling out information and cleaning up. The details of the
@@ -215,7 +215,7 @@ error:
 
 /* ---------------- vrsn_int ----------------------------------
  * Convert a string like
- *      $Revision: 1.49 $ version
+ *      $Revision: 1.1 $ version
  * to a pair of integers, 1 and 10.
  */
 static int

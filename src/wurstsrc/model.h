@@ -1,6 +1,6 @@
 /*
  * 31 October 2001
- * $rcsid = $Id: model.h,v 1.11 2006/07/27 09:38:11 torda Exp $
+ * $rcsid = $Id: model.h,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  */
 #ifndef MODEL_H
 #define MODEL_H

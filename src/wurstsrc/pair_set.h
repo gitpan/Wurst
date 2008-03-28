@@ -5,7 +5,7 @@
  * It defines the internals, so it is only to be included by
  * the very few routines which manipulate pair_sets.
  * The functions are declared in pair_set_i.h
- * rcsid = "$Id: pair_set.h,v 1.4 2007/02/12 17:03:55 tmargraf Exp $"
+ * rcsid = "$Id: pair_set.h,v 1.1 2007/09/28 16:57:05 mmundry Exp $"
  */
 
 #ifndef PAIR_SET_H

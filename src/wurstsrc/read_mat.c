@@ -3,7 +3,7 @@
  * Read a substitution matrix and so some simple manipulations
  * like reading and setting elements.
  *
- * $Id: read_mat.c,v 1.15 2007/09/28 12:11:58 torda Exp $
+ * $Id: read_mat.c,v 1.1 2007/09/28 16:57:07 mmundry Exp $
  */
 
 #include <ctype.h>

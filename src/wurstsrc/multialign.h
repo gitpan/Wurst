@@ -1,5 +1,5 @@
 /*
- * $Id: multialign.h,v 1.4 2007/09/28 12:12:00 torda Exp $
+ * $Id: multialign.h,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 
 #ifndef MULTRIALIGN_H

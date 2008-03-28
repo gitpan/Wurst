@@ -8,7 +8,7 @@
  * different types like integers, short integers and so on.
  * The routines use the underlying posix xrand48() functions.
  *
- * $Id: rand.c,v 1.2 2007/09/28 12:11:59 torda Exp $
+ * $Id: rand.c,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  */
 
 #include <math.h>

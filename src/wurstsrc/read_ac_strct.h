@@ -1,6 +1,6 @@
 /*
  * 12 Dec 2005
- * rcsid = $Id: read_ac_strct.h,v 1.7 2006/06/22 11:01:33 lai Exp $
+ * rcsid = $Id: read_ac_strct.h,v 1.1 2007/09/28 16:57:09 mmundry Exp $
  */
 #ifndef READ_AC_STRCT_H
 #define READ_AC_STRCT_H

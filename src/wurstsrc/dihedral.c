@@ -2,7 +2,7 @@
  * 10 Jan 2002
  * Just calculation of a dihedral angle.
  *
- * $Id: dihedral.c,v 1.5 2007/09/28 12:12:01 torda Exp $
+ * $Id: dihedral.c,v 1.1 2007/09/28 16:57:08 mmundry Exp $
  */
 
 #include <math.h>

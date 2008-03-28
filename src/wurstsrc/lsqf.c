@@ -1,8 +1,6 @@
 /*
  * Fitting code, originally written by Wilfred van Gunsteren
- * $Id: lsqf.c,v 1.11 2007/09/28 12:13:25 torda Exp $
  */
-
 #define _XOPEN_SOURCE 500    /* Necessary to get maths constants */
 #include <math.h>
 #include <stdio.h>
@@ -18,7 +16,10 @@
 #include "read_seq_i.h"
 
 
-
+#if !defined (lint) && !defined (DONT_SEE_RCS)
+    static const char *rcsid =
+    "$Id: lsqf.c,v 1.2 2008/01/18 13:51:20 margraf Exp $";
+#endif /* !defined (lint) && !defined (DONT_SEE_RCS) */
 
 /* ---------------- eigen -------------------------------------
  * This calculates eigenvalues and corresponding eigenvectors.
@@ -677,3 +678,35 @@ coord_rmsd(struct pair_set *const pairset, struct coord *source,
   escape:
     return (EXIT_FAILURE);
 }
+
+
+/*------------------------- get_rmsd ------------------------------------------
+
+*/
+int get_rmsd(struct pair_set *pairset, struct coord *r1,
+    struct coord *r2, float *rmsd_ptr, int *count){
+    float dr_sqrlength = 0.0;
+    float rmsd = 0.0;
+    struct RPoint *dr;
+    size_t n;
+
+    float pairs = 0.0;
+    dr = E_MALLOC(3*sizeof(float));
+    for (n = 0; n < pairset->n; n++) {
+        if(pairset->indices[n][0] != GAP_INDEX && pairset->indices[n][1] != GAP_INDEX){
+			dr->x = r1->rp_ca[pairset->indices[n][0]].x - r2->rp_ca[pairset->indices[n][1]].x;
+			dr->y = r1->rp_ca[pairset->indices[n][0]].y - r2->rp_ca[pairset->indices[n][1]].y;
+			dr->z = r1->rp_ca[pairset->indices[n][0]].z - r2->rp_ca[pairset->indices[n][1]].z;
+			dr_sqrlength = dr->x * dr->x + dr->y * dr->y + dr->z * dr->z;
+			rmsd += sqrt(dr_sqrlength);
+			pairs = pairs+1.0;
+        }
+	}
+	/* rmsd /= pairs;
+	   rmsd = sqrt(rmsd);*/
+	*rmsd_ptr = rmsd;
+	*count = pairs;
+	free(dr);
+	return pairs;
+}
+

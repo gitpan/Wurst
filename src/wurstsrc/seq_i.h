@@ -1,7 +1,7 @@
 /*
  * 26 April 2007
  * Operations on amino sequences of structure: struct seq
- * $Id: seq_i.h,v 1.2 2007/09/28 12:11:56 torda Exp $
+ * $Id: seq_i.h,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  */
 
 #ifndef SEC_I_H

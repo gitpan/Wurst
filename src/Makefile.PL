@@ -1,26 +1,20 @@
 # src Makefile
 use ExtUtils::MakeMaker;
+use Config;
 
-my $cflags = "$common::defines -DRETSIGTYPE=$Config{signal_t} -DGPLT_X11_MODE";
+# Here you can add additional compiler flags
+$additionalccflags="";
+# additionalgccflags are only used if the cc is a gcc
+$additionalgccflags="";
 
-# on MSWin32 these functions are wrappers available in Perl CORE only
-if (defined $Config{d_dup2} and defined $Config{d_pipe} and $^O ne 'MSWin32') {
-  $cflags .= ' -DPIPES -DX11 -DX11_DRIVER_DIR=\".\"';
-  $cflags .= " -DEXENAME_X11=$common::x_exe -DEXENAME_PM=$common::pm_exe -DCANT_ACCEPT_COMMANDS -DX11_FORCED_PATH";
+$ccflags="$Config{'ccflags'} $additionalccflags";
+if ($Config{'ccname'} eq "gcc" ) {
+ $ccflags="$ccflags $additionalgccflags";
 }
-
-$cflags .= ' -DMY_Windows' if $^O eq 'MSWin32';
-
-$cflags .= $common::cflags;
-
-$try_libs = $common::try_libs;
-
-my $Using_ms_vc = ($^O =~ /win32/i and $Config{cc} =~ /cl/i);
-my $Using_Borland = ($^O =~ /win32/i and $Config{cc} =~ /\bbcc/i);
-
 
 WriteMakefile(
       'OPTIMIZE'      => $OPTIMIZE,
+      'CCFLAGS'       => "$ccflags",
       'NAME'          => 'Wurst',
       'VERSION_FROM'  => '../lib/Wurst.pm',     # finds $VERSION
       'DEFINE'        => $cflags,

@@ -1,6 +1,6 @@
 /*
  * 27 Aug 2001
- * rcsid = $Id: matrix.h,v 1.7 2007/04/04 13:07:57 tmargraf Exp $
+ * rcsid = $Id: matrix.h,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  */
 #ifndef MATRIX_H
 #define MATRIX_H

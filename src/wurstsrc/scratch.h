@@ -1,6 +1,6 @@
 /*
  * 9 January 2002
- * $Id: scratch.h,v 1.1 2002/02/07 06:41:03 torda Exp $
+ * $Id: scratch.h,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  */
 
 #ifndef SCRATCH_H

@@ -1,6 +1,6 @@
 /*
  * 26 March 2002
- * rscid = $Id: vec_i.h,v 1.1 2002/04/02 00:04:16 torda Exp $
+ * rscid = $Id: vec_i.h,v 1.1 2007/09/28 16:57:07 mmundry Exp $
  */
 
 #ifndef VEC_I_H

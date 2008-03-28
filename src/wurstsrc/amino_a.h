@@ -2,7 +2,7 @@
  * 23 March 2001
  * You can only include me after <stdlib.h>
  * because I use size_t.
- * rcsid = $Id: amino_a.h,v 1.3 2002/03/28 00:45:33 torda Exp $
+ * rcsid = $Id: amino_a.h,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 #ifndef AMINO_A_H
 #define AMINO_A_H

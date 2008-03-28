@@ -1,7 +1,7 @@
 /*
  * 23 March 2002
  * Interface to pdb reading routines.
- * rcsid = $Id: pdbin_i.h,v 1.1 2002/04/02 00:04:53 torda Exp $
+ * rcsid = $Id: pdbin_i.h,v 1.1 2007/09/28 16:57:10 mmundry Exp $
  */
 #ifndef PDBIN_I_H
 #define PDBIN_I_H

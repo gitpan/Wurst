@@ -1,6 +1,6 @@
 /*
  * 16 nov 2005
- * rcsid = $Id: rand.h,v 1.1 2005/11/17 13:43:36 torda Exp $
+ * rcsid = $Id: rand.h,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 #ifndef RAND_H
 #define RAND_H

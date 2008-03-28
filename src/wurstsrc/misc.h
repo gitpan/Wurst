@@ -1,6 +1,6 @@
 /*
  * 25 February 2002
- * rcsid = $Id: misc.h,v 1.1 2002/03/04 01:28:55 torda Exp $
+ * rcsid = $Id: misc.h,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  */
 #ifndef MISC_H
 #define MISC_H

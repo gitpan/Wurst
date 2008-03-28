@@ -1,5 +1,5 @@
 /* 29 Mar 05
- * $Id: altscores.h,v 1.4 2007/09/28 11:24:58 torda Exp $
+ * $Id: altscores.h,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  * Gundolf Schenk
  */
 #ifndef ALTSCORES_H

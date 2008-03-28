@@ -1,7 +1,7 @@
 /*
  * 25 Sep 2001
  * Some operations on pair_set's (alignments)
- * $Id: pair_set.c,v 1.26 2007/09/28 12:12:00 torda Exp $
+ * $Id: pair_set.c,v 1.5 2008/03/08 16:49:02 torda Exp $
  */
 
 #include <stdio.h>
@@ -53,20 +53,18 @@ pair_set_string (struct pair_set *pair_set, struct seq *s1, struct seq *s2)
  * type.
  */
 char *
-multal_string (struct pair_set *pair_set)
+multal_string (struct pair_set *pairset)
 {
-    int **indices = pair_set -> indices;
     size_t i;
     size_t j;
-    const char GAP = '-';
+    int **indices = pairset->indices;
 
     scr_reset();
-    for (j = 0; j < pair_set->m; j++) {
-        for (i = 0; i < pair_set->n; i++) {
-            char c1 = (indices[i][j] == GAP_INDEX ? GAP : 'X');
-            scr_printf ("%c", c1);
-        }
-        scr_printf ("\n");
+    for (j = 0; j < pairset->m; j++) {
+        scr_printf("%-4d", (int)(indices[0][j]));
+        for (i = 0; i < pairset->n; i++)
+            scr_printf ("%4d ", indices[i][j]);
+        scr_printf (" %d\n", indices[(int)(pairset->n-1)][j]);
     }
 
     return (scr_printf ("%c", '\n'));

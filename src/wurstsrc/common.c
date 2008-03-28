@@ -8,7 +8,7 @@
       extern const char *prog_bug
  * for example.
  *
- * $Id: common.c,v 1.3 2007/09/28 12:12:02 torda Exp $
+ * $Id: common.c,v 1.1 2007/09/28 16:57:09 mmundry Exp $
  */
 
 const char *prog_bug   = "Programming bug %s %d\n";

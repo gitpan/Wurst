@@ -2,11 +2,25 @@
 use ExtUtils::MakeMaker;
 use Config;
 
+# Here you can add additional compiler flags
+$additionalccflags="";
+# additionalgccflags are only used if the cc is a gcc
+$additionalgccflags="";
+
+$ccflags="$Config{'ccflags'} $additionalccflags";
+$depend="";
+$dependpostamble="";
+if ($Config{'ccname'} eq "gcc" ) {
+ $ccflags="$ccflags $additionalgccflags";
+ $dependtarget="depend::\n\trm -f depend\n\t$Config{'cc'} -MM *.c > depend\n";
+ $dependpostamble="include depend";
+}
+
 WriteMakefile(
     'NAME'	=> 'LibWurst',
     'LINKTYPE'	=> 'static',
-    'OBJECT'	=> 'align$(OBJ_EXT) altscores$(OBJ_EXT) amino_a$(OBJ_EXT) binver$(OBJ_EXT) cmp_dmat$(OBJ_EXT) common$(OBJ_EXT) classifyStructure$(OBJ_EXT) class_model$(OBJ_EXT) lsqf$(OBJ_EXT) multialign$(OBJ_EXT) coord$(OBJ_EXT) coordinfo$(OBJ_EXT) dbg$(OBJ_EXT) dihedral$(OBJ_EXT) e_malloc$(OBJ_EXT) fio$(OBJ_EXT) geo_gap$(OBJ_EXT) matrix$(OBJ_EXT) mgc_num$(OBJ_EXT) misc$(OBJ_EXT) model$(OBJ_EXT) mprintf$(OBJ_EXT) pair_set$(OBJ_EXT) pair_set_p$(OBJ_EXT) param_fx$(OBJ_EXT) pair_set_chim$(OBJ_EXT) pdbin$(OBJ_EXT) pdbout$(OBJ_EXT) prob_vec$(OBJ_EXT) read_ac_strct$(OBJ_EXT) read_ac$(OBJ_EXT) read_blst$(OBJ_EXT) read_mat$(OBJ_EXT) read_sec$(OBJ_EXT) read_seq$(OBJ_EXT) rescore$(OBJ_EXT) scor_set$(OBJ_EXT) score_fx$(OBJ_EXT) score_mat$(OBJ_EXT) score_probvec$(OBJ_EXT) score_sec$(OBJ_EXT) score_smat$(OBJ_EXT) scratch$(OBJ_EXT) sec_s$(OBJ_EXT) silly$(OBJ_EXT) str$(OBJ_EXT) vec$(OBJ_EXT) solv_data$(OBJ_EXT)',
-#   'INC'	=> '-I..',
+    'CCFLAGS'	=> "$ccflags",
+    'OBJECT'	=> '$(O_FILES)',
     'clean'	=> {'FILES' => 'libwurst$(LIB_EXT) *~'},
     macro	=> {
 		    ADD_AR_OPT	  => ($add_ar_flags || ''),
@@ -29,6 +43,12 @@ sub MY::top_targets {
 '
 all :: libwurst$(LIB_EXT)
 
+tags:
+	etags $(C_FILES)
+
+splint:
+	splint -preproc +posixlib -realcompare $(C_FILES)
+
 static ::       libwurst$(LIB_EXT)
 
 libwurst$(LIB_EXT): $(OBJECT) gsldir/Makefile
@@ -36,5 +56,10 @@ libwurst$(LIB_EXT): $(OBJECT) gsldir/Makefile
 	$(AR) $(ADD_AR_OPT) $(MY_AR_PRE_TARGET)libwurst$(LIB_EXT) $(MY_AR_OBJECT)
 	$(RANLIB) libwurst$(LIB_EXT)
 
+'.$dependtarget.'
 ';
 }
+
+
+
+sub MY::postamble {$dependpostamble;}

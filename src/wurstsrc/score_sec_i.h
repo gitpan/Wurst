@@ -1,6 +1,6 @@
 /*
  * 27 Feb 2002
- * $Id: score_sec_i.h,v 1.2 2007/09/28 12:11:57 torda Exp $
+ * $Id: score_sec_i.h,v 1.1 2007/09/28 16:57:07 mmundry Exp $
  */
 #ifndef SCORE_SEC_H
 #define SCORE_SEC_H

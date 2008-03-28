@@ -2,7 +2,7 @@
  * 24 Oct 2001
  * Secondary structure routines.
  * Only these routines know the details of secondary structure stuff.
- * $Id: sec_s.c,v 1.4 2007/09/28 12:11:56 torda Exp $
+ * $Id: sec_s.c,v 1.1 2007/09/28 16:57:07 mmundry Exp $
  */
 
 #include <stdio.h>

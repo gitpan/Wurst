@@ -1,6 +1,6 @@
 /*
  * 27 Aug 2001
- * $Id: align.c,v 1.26 2007/09/28 11:20:46 torda Exp $
+ * $Id: align.c,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  */
 
 #include <float.h>

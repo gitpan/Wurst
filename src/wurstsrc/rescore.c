@@ -9,7 +9,7 @@
  * their historical basis clear. They should also have nice
  * clean short names which look nice in perl scripts.
  *
- * $Id: rescore.c,v 1.7 2007/09/28 12:11:58 torda Exp $
+ * $Id: rescore.c,v 1.1 2007/09/28 16:57:08 mmundry Exp $
  */
 #include <stdio.h>
 #include <stdlib.h>

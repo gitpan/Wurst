@@ -1,7 +1,7 @@
 /*
  * 30 Oct 2001
  * Write pdb format coordinates
- * $Id: pdbout.c,v 1.14 2007/09/28 12:11:59 torda Exp $
+ * $Id: pdbout.c,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 
 #include <stdlib.h>

@@ -5,7 +5,7 @@
  * the innards of a coordinate structure.
  *
  * This may only be included after "units.h".
- * rcsid = $Id: coord.h,v 1.7 2007/08/15 11:47:15 torda Exp $
+ * rcsid = $Id: coord.h,v 1.1 2007/09/28 16:57:13 mmundry Exp $
  */
 #ifndef COORD_H
 #define COORD_H

@@ -1,6 +1,6 @@
 /*
  * 27 Aug 2001
- * rcsid = $Id: align_i.h,v 1.3 2007/02/12 17:03:55 tmargraf Exp $;
+ * rcsid = $Id: align_i.h,v 1.1 2007/09/28 16:57:08 mmundry Exp $;
  */
 #ifndef ALIGN2_H
 #define ALIGN2_H

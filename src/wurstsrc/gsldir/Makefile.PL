@@ -2,9 +2,20 @@
 use ExtUtils::MakeMaker;
 use Config;
 
+# Here you can add additional compiler flags
+$additionalccflags="";
+# additionalgccflags are only used if the cc is a gcc
+$additionalgccflags="";
+
+$ccflags="$Config{'ccflags'} $additionalccflags";
+if ($Config{'ccname'} eq "gcc" ) {
+ $ccflags="$ccflags $additionalgccflags";
+}
+
 WriteMakefile(
     'NAME'	=> 'LibMiniGSL',
     'LINKTYPE'	=> 'static',
+    'CCFLAGS'	=> "$ccflags",
     'OBJECT'	=> 'blas$(OBJ_EXT) error$(OBJ_EXT) permutation_init$(OBJ_EXT) lu$(OBJ_EXT) init$(OBJ_EXT) view$(OBJ_EXT) strerror$(OBJ_EXT) block_init$(OBJ_EXT) matrix$(OBJ_EXT) matrix_view$(OBJ_EXT) matrix_init$(OBJ_EXT) matrix_rowcol$(OBJ_EXT) matrix_swap$(OBJ_EXT) erfc$(OBJ_EXT) stream$(OBJ_EXT)',
     'INC'	=> '-I..',
     'clean'	=> {'FILES' => 'libminigsl$(LIB_EXT) *~'},

@@ -1,6 +1,6 @@
 /*
  * 26 March 2001
- * rcsid = $Id: sub_mat.h,v 1.3 2002/03/13 04:52:27 torda Exp $
+ * rcsid = $Id: sub_mat.h,v 1.1 2007/09/28 16:57:04 mmundry Exp $
  */
 #ifndef SUB_MAT_H
 #define SUB_MAT_H

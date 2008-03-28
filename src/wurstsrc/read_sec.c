@@ -7,7 +7,7 @@
  * the interesting data, we get interesting data to fill
  * out an array of struct pred[].
  *
- * $Id: read_sec.c,v 1.10 2007/09/28 12:11:58 torda Exp $
+ * $Id: read_sec.c,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  */
 
 #include <ctype.h>

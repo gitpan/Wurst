@@ -5,7 +5,7 @@
  * of binary files.  This should be sufficient to detect byte swapping,
  * precision and so on
  *
- * $Id: mgc_num.c,v 1.3 2007/09/28 12:12:01 torda Exp $
+ * $Id: mgc_num.c,v 1.1 2007/09/28 16:57:13 mmundry Exp $
  */
 
 #include <math.h>

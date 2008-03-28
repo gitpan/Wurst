@@ -1,6 +1,6 @@
 /*
  * 25 February 2002
- * $Id: misc.c,v 1.3 2007/09/28 12:12:00 torda Exp $
+ * $Id: misc.c,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 
 #include <ctype.h>

@@ -6,7 +6,7 @@
  * it is likely we will want them for other purposes like
  * sequence optimising.
  *
- * $Id: score_probvec.c,v 1.8 2007/09/28 12:11:57 torda Exp $
+ * $Id: score_probvec.c,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 
 #include <stdio.h>

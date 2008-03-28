@@ -1,6 +1,6 @@
 /*
  * 22 March 2001
- * rcsid = $Id: str.h,v 1.4 2002/03/28 05:24:33 torda Exp $
+ * rcsid = $Id: str.h,v 1.1 2007/09/28 16:57:10 mmundry Exp $
  */
 #ifndef STR_H
 #define STR_H

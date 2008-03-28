@@ -41,7 +41,7 @@ All the files have lines like this:
 
   #if !defined (lint) && !defined (DONT_SEE_RCS)
       static const char *rcsid =
-      "$Id: coding.pod,v 1.11 2006/02/18 14:14:24 torda Exp $";
+      "$Id: coding.pod,v 1.1 2007/09/28 16:57:19 mmundry Exp $";
   #endif /* !defined (lint) && !defined (DONT_SEE_RCS) */
 
 These come after the #include directives.

@@ -2,7 +2,7 @@
  * To get some information out of the coord structure
  * (for scripting/manipulation rather than threading)
  *
- * $Id: coordinfo.c,v 1.4 2007/09/28 12:12:02 torda Exp $
+ * $Id: coordinfo.c,v 1.1 2007/09/28 16:57:04 mmundry Exp $
  */
 
 #include <limits.h>

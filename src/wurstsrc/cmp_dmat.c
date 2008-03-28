@@ -7,7 +7,7 @@
  * structure are usually different sizes, so the calculation is
  * done on the common sites, marked in the "mask" array.
  *
- * $Id: cmp_dmat.c,v 1.14 2007/09/28 12:12:02 torda Exp $
+ * $Id: cmp_dmat.c,v 1.1 2007/09/28 16:57:03 mmundry Exp $
  */
 
 

@@ -8,7 +8,7 @@
  * of file types and write the data for each amino acid into its
  * own file.
  *
- * $Id: solv_data.c,v 1.4 2007/09/28 12:11:56 torda Exp $
+ * $Id: solv_data.c,v 1.1 2007/09/28 16:57:03 mmundry Exp $
  */
 
 #include <stdio.h>

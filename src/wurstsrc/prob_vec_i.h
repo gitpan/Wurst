@@ -3,7 +3,7 @@
  * This is the function interface for probability vectors.
  * The structure is defined in prob_vec.h.
  * One may only include this file after <stdlib.h>.
- * rcsid = $Id: prob_vec_i.h,v 1.5 2007/06/01 12:22:19 mmosisch Exp $
+ * rcsid = $Id: prob_vec_i.h,v 1.1 2007/09/28 16:57:12 mmundry Exp $
  */
 #ifndef PROB_VEC_I_H
 #define PROB_VEC_I_H

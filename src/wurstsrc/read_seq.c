@@ -1,6 +1,6 @@
 /*
  * 21 March 2001
- * $Id: read_seq.c,v 1.16 2007/09/28 12:11:58 torda Exp $
+ * $Id: read_seq.c,v 1.1 2007/09/28 16:57:03 mmundry Exp $
  */
 
 #include <ctype.h>

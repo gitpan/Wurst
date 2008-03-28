@@ -1,6 +1,6 @@
 /*
  * 21 March 2001
- * rcsid = $Id: seq.h,v 1.3 2002/03/01 06:06:17 torda Exp $
+ * rcsid = $Id: seq.h,v 1.1 2007/09/28 16:57:03 mmundry Exp $
  */
 #ifndef SEQ_H
 #define SEQ_H

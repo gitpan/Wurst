@@ -4,7 +4,7 @@
  * For fun, we add in the function attributes which tell gcc that there
  * will be no aliasing of returned pointers. These may or may not help.
  * They are written so they will do no harm with other compilers.
- * rcsid = $Id: e_malloc.h,v 1.4 2005/05/11 15:55:27 gschenk Exp $
+ * rcsid = $Id: e_malloc.h,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 #ifndef __E_MALLOC_H
 #define __E_MALLOC_H

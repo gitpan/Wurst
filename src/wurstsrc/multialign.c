@@ -1,7 +1,3 @@
-/*
- * $Id: multialign.c,v 1.4 2007/09/28 12:12:00 torda Exp $
- */
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -18,6 +14,7 @@
 #include "score_probvec.h"
 #include "pair_set.h"
 #include "pair_set_i.h"
+
 
 /* --------------------------- pvec_avg ---------------------------------
  * compute average pvecs. this shouldn't be here and will be moved to pvec.c
@@ -67,25 +64,28 @@ pvec_avg(struct prob_vec *p_vec1,
         return NULL;
     }
     for (i = 0; i < align_len; i++) {
-        if (pairs[i][0] != GAP_INDEX) {
-            if ((pairs[i][1] == GAP_INDEX) ||
-               ((unsigned) pairs[i][1] >= p_vec2->n_pvec)) {
-                if (!((unsigned) pairs[i][0] >= p_vec1->n_pvec)) {
+        if (pairs[i][0] != GAP_INDEX && pairs[i][0] < p_vec1->n_pvec){        /* no gap in struct 1 */
+            if (pairs[i][1] == GAP_INDEX || pairs[i][1] >= p_vec2->n_pvec){   /* gap in struct2     */
                     for (k = 0; k < pvec->n_class; k++) {
                         pvec->mship[j][k] = p_vec1->mship[pairs[i][0]][k];
                     }
-                }
-            } else {
-                if (!((unsigned) pairs[i][0] >= p_vec1->n_pvec)) {
-                    for (k = 0; k < pvec->n_class; k++) {
-                        pvec->mship[j][k] =
-                        (p_vec1->mship[pairs[i][0]][k]) * weight +
-                        (p_vec2->mship[pairs[i][1]][k]) * (1 - weight);
-                    }
+            }
+			else if (pairs[i][0] == GAP_INDEX || pairs[i][0] >= p_vec1->n_pvec) { /* gap in struct 1 */
+				if (pairs[i][1] != GAP_INDEX && pairs[i][1] < p_vec2->n_pvec){
+					for (k = 0; k < pvec->n_class; k++){
+						pvec->mship[j][k] = p_vec2->mship[pairs[i][1]][k];
+					}
+			    }
+			}
+            else{   
+                for (k = 0; k < pvec->n_class; k++) {
+                    pvec->mship[j][k] =
+                    (p_vec1->mship[pairs[i][0]][k]) * weight +
+                    (p_vec2->mship[pairs[i][1]][k]) * (1 - weight);
                 }
             }
-            j++;
         }
+        j++;
     }
 
     pvec->cmpct_n = NULL;
@@ -111,13 +111,14 @@ merge_alignments(struct pair_set *align1, struct pair_set *align2, struct pair_s
     size_t i, j, idx1, idx2;
     /* now we copy the values from the old pairsets to the new one and insert gaps where the consensus
      * alignment tells us to*/
+    result = E_MALLOC (sizeof (struct pair_set));
     i = j = idx1 = idx2 = 0;
-    result = E_MALLOC (sizeof (alignment));
-    result->m = align1->m + align2->m;
+    result->m = (align1->m) + (align2->m);
     result->n = alignment->n;
     result->indices = i_matrix(result->n, result->m);
+	idx1 = idx2 = 0;
 	/* run through all columns of the alignment */
-    for(i = 0; i < alignment->n; i++){
+    for(i = 0; i < result->n; i++){
 		/* if position i in the first pairset is aligned, copy the column 
 		 * from the first pairset into the results. */
         if(alignment->indices[i][0] != GAP_INDEX && idx1 < align1->n){
@@ -160,8 +161,8 @@ remove_seq(struct pair_set *align, int idx){
     if(ind < 0){
 		ind += align->m;
 	}
-	result = E_MALLOC (sizeof (align));
-    result->m = align->m - 1;
+	result = E_MALLOC (sizeof (struct pair_set));
+	result->m = align->m - 1;
     result->n = align->n;
     result->indices = i_matrix(result->n, result->m);
     for (i=0; i<(int)result->m; i++){
@@ -173,7 +174,7 @@ remove_seq(struct pair_set *align, int idx){
         }
         src++;
     }
-    /*pair_set_destroy(align);*/
+   /* pair_set_destroy(align);*/
     return(result);
 	
 /*	return(align);*/

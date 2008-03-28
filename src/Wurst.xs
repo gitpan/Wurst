@@ -1,4 +1,4 @@
-#/*$Id: Wurst.xs,v 1.81 2007/09/14 15:19:03 mmundry Exp $ */
+#/*$Id: Wurst.xs,v 1.10 2008/03/14 15:43:31 mmundry Exp $ */
 
 #include "EXTERN.h"
 #include "perl.h"
@@ -9,6 +9,7 @@
 #include "class_model.h"
 #include "classifyStructure.h"
 #include "cmp_dmat_i.h"
+#include "compound.h"
 #include "coord.h"
 #include "coord_i.h"
 #include "coordinfo_i.h"
@@ -44,13 +45,6 @@
 #include "scor_set_i.h"
 #include "seq.h"
 
-
-static int
-not_here(char *s)
-{
-    croak("%s not implemented on this architecture", s);
-    return -1;
-}
 
 static double
 constant(char *name, int len, int arg)
@@ -364,36 +358,21 @@ coord_phi (c, j, shift_min);
       OUTPUT:
         RETVAL
 
-int
-coord_geo_gap (c, scale, max)
-        Coord *c
-        float scale
-        float max
-    PPCODE:
-    {
-        unsigned int num_gap;
-        int r;
-        float quad, linear, logistic;
-        SV *sv1 = &PL_sv_undef;
-        SV *sv2 = &PL_sv_undef;
-        SV *sv3 = &PL_sv_undef;
-        SV *sv4 = &PL_sv_undef;
-        r = coord_geo_gap (c, &quad, &linear, &logistic, &num_gap, scale, max);
-        if (r == EXIT_FAILURE)
-            XSRETURN_UNDEF;
-        sv1 = newSVnv (quad);
-        sv2 = newSVnv (linear);
-        sv3 = newSVnv (logistic);
-        sv4 = newSViv (num_gap);
-        sv_2mortal (sv1);
-        sv_2mortal (sv2);
-        sv_2mortal (sv3);
-        sv_2mortal (sv4);
-        XPUSHs (sv1);
-        XPUSHs (sv2);
-        XPUSHs (sv3);
-        XPUSHs (sv4);
-    }
+void
+coord_geo_gap (IN Coord *c, \
+               OUTLIST float quad, OUTLIST float linear, \
+               OUTLIST float logistic, OUTLIST unsigned int num_gap, \
+               IN float scale, IN float max)
+    PROTOTYPE: $$$
+
+    CODE:
+        {
+            int i;
+            i = coord_geo_gap (c, &quad, &linear, &logistic, \
+                               &num_gap, scale, max);
+            if (i == EXIT_FAILURE)
+                XSRETURN_EMPTY;
+        }
 
 int
 dme_thresh (frac, c1, c2, thresh)
@@ -731,21 +710,22 @@ pair_set_coverage (s, n1, n2)
         free (c2);
     }
 
-int
-pair_set_gap (s, open_scale, widen_scale)
-        Pair_set *s
-        float open_scale
-        float widen_scale
-    PPCODE:
-    {
-        float open_cost, widen_cost;
-        int r;
-        r = pair_set_gap (s, &open_cost, &widen_cost, open_scale, widen_scale);
-        if (r == EXIT_FAILURE)
-            XSRETURN_UNDEF;
-        XPUSHs(sv_2mortal(newSVnv (open_cost)));
-        XPUSHs(sv_2mortal(newSVnv (widen_cost)));
-    }
+void
+pair_set_gap (IN Pair_set *s, \
+              OUTLIST float open_cost, OUTLIST float widen_cost, \
+              IN float open_scale, IN float widen_scale)
+
+    PROTOTYPE: $$$
+
+    CODE:
+        {
+            int i;
+            i = pair_set_gap (s, &open_cost, &widen_cost, \
+                              open_scale, widen_scale);
+
+            if (i == EXIT_FAILURE)
+                XSRETURN_EMPTY;
+        }
 
 char *
 pair_set_string (s, seq0, seq1)
@@ -775,28 +755,20 @@ pair_set_get_alignment_indices (IN Pair_set *p_s, IN int sequencenumber,\
 int
 get_seq_id_simple (  Pair_set *pair_set, Seq *s1, Seq *s2 );
 
-#/* As above, we would like to use the newer IN/OUT lists, but
-#/* for compatibility with older perl releases, we use PPCODE and take
-#/* care ofthe stack explicitly
-# */
-int
-pair_set_score(s)
-        Pair_set *s;
-    PPCODE:
-    {
-        float score, score_smpl;
-        SV *sv1 = &PL_sv_undef;
-        SV *sv2 = &PL_sv_undef;
-        if (pair_set_score (s, &score, &score_smpl) == EXIT_FAILURE)
-            XSRETURN_UNDEF;
-        sv1 = newSVnv (score);
-        sv_2mortal (sv1);
-        sv2 = newSVnv (score_smpl);
-        sv_2mortal (sv2);
-        XPUSHs (sv1);
-        XPUSHs (sv2);
-        RETVAL = 1;
-    }
+void
+pair_set_score(IN Pair_set *s, \
+               OUTLIST float score, OUTLIST float score_smpl)
+
+    PROTOTYPE: $
+
+    CODE:
+        {
+            int i;
+            i = pair_set_score (s, &score, &score_smpl);
+ 
+            if (i == EXIT_FAILURE)
+                XSRETURN_EMPTY;
+        }
 
 int
 pair_set_extend(s, n0, n1, ext_len)
@@ -833,18 +805,6 @@ funcs2_char ()
 #/* ---------------- clean_up   --------------------------------
 void
 free_scratch ()
-
-
-#/* ---------------- temporary solvation    --------------------
-# * We have some very temporary solvation routines. When we have
-# * decided on an interface, we should put them in properly.
-# * For the moment, these things just write to their own files
-# * in a rather uncontrolled manner.
-# */
-
-int
-get_nbor (c)
-    Coord * c
 
 #/* ---------------- blast checkpoint files --------------------
 # */
@@ -1222,12 +1182,39 @@ split_multal (pairset, a, b);
 # */
 MODULE = Wurst PACKAGE = Wurst
 
-NO_OUTPUT int
+void
 coord_rmsd ( IN Pair_set *pair_set, IN Coord *coord1, IN Coord *coord2, \
             IN int sub_flag,\
             OUTLIST float rmsd, OUTLIST Coord *c1_new, OUTLIST Coord *c2_new)
     PROTOTYPE: $$$$
     CODE:
-        RETVAL = coord_rmsd(pair_set, coord1, coord2, sub_flag, &rmsd, &c1_new, &c2_new);
-        if (RETVAL == EXIT_FAILURE)
-            XSRETURN_UNDEF;
+        {
+            int i;
+            i = coord_rmsd(pair_set, coord1, coord2, sub_flag, &rmsd, &c1_new, &c2_new);
+            if (i == EXIT_FAILURE)
+                XSRETURN_EMPTY;
+        }
+
+void
+get_rmsd(IN Pair_set *pairset, IN Coord *r1, \
+         IN Coord *r2, OUTLIST float rmsd, OUTLIST int count)
+    PROTOTYPE: $$$
+    CODE:
+        {
+            int i;
+            i = get_rmsd(pairset, r1, r2, &rmsd, &count);
+            if (i == EXIT_FAILURE)
+                XSRETURN_EMPTY;
+        }
+
+#/* ------------ accessing compound info ----------------------------
+#*/
+
+char *
+get_compound_coord(c)
+    Coord * c;
+
+char *
+get_compound_vec(v)
+    Prob_vec * v;
+

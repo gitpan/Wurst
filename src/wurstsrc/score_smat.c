@@ -7,7 +7,7 @@
  *  * sequence to profile scores
  *  * profile to profile scores
  *
- * $Id: score_smat.c,v 1.10 2007/09/28 12:11:57 torda Exp $
+ * $Id: score_smat.c,v 1.1 2007/09/28 16:57:10 mmundry Exp $
  */
 
 #include <stdio.h>

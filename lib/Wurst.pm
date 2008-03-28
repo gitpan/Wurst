@@ -1,5 +1,5 @@
 package Wurst;
-# rcsid = "$Id: Wurst.pm,v 1.55 2007/06/21 18:32:50 torda Exp $"
+# rcsid = "$Id: Wurst.pm,v 1.2 2008/01/18 15:05:59 margraf Exp $"
 use strict;
 use Carp;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK $AUTOLOAD);
@@ -61,6 +61,7 @@ require AutoLoader;
         funcs2_char
         get_clssfcn
         get_nbor
+		get_rmsd
         get_solv_data
         get_torsion_data
         get_seq_id_simple

@@ -1,6 +1,6 @@
 /*
  * 1 March 2002
- * $Id: score_mat_i.h,v 1.7 2007/09/28 12:11:57 torda Exp $
+ * $Id: score_mat_i.h,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 #ifndef SCORE_MAT_I_H
 #define SCORE_MAT_I_H

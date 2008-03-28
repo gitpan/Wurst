@@ -1,10 +1,6 @@
 /*
  * Read up a classification based on both structure and sequence.
- * This was built by Alan Wendland, based on the code from Gundolf
- * Schenk which read structural classifications and Andrew which
- * read sequence classifications.
- *
- * $Id: read_ac_strct.c,v 1.27 2007/09/28 12:11:59 torda Exp $
+ * $Id: read_ac_strct.c,v 1.2 2008/03/10 12:44:49 torda Exp $
  */
 
 #define _XOPEN_SOURCE 500
@@ -149,8 +145,9 @@ seq_strct_2_prob_vec (struct coord *structure, const struct seq *seq,
                     prob_vec_destroy (pvec);
                     return NULL;
                 }
+                free_if_not_null (fragment);
+                fragment = NULL;
             }
-            free_if_not_null (fragment);
         }
 
         if (sp || seq) {                /* Sequence or profile membership */
@@ -215,7 +212,6 @@ strct_2_prob_vec (struct coord *structure,
                   const struct aa_strct_clssfcn *cmodel, const int norm)
 {
     const char *this_sub = "strct_2_prob_vec";
-    err_printf(this_sub, "entering.\n");
 
     if (!structure){
         err_printf (this_sub, "No Structure Input!\n");
@@ -354,17 +350,17 @@ strct_2_duplicated_prob_vec (struct coord *structure, const struct seq *seq,
 
         if (structure) {                           /* Structure membership */
             for (i = 0; i < n_pvec; i++){           /* for every fragment...*/
-                     /* twice for every fragment on position  i as on i + size */
-                     fragment = getFragment (i , cmodel->n_att, structure);
-                     for (j = 0; j < n_duplications; j++){
-                        if (computeMembershipStrct(pvec->mship[ i + j * n_pvec], fragment,
-                                                   cmodel->strct) == NULL) {
+                /* twice for every fragment on position  i as on i + size */
+                fragment = getFragment (i , cmodel->n_att, structure);
+                for (j = 0; j < n_duplications; j++){
+                    if (computeMembershipStrct(pvec->mship[ i + j * n_pvec], fragment,
+                                               cmodel->strct) == NULL) {
                         prob_vec_destroy (pvec);
                         return NULL;
                     }
                 }
+                free_if_not_null (fragment);
             }
-            free_if_not_null (fragment);
         }
 
         if (sp || seq) {                /* Sequence or profile membership */

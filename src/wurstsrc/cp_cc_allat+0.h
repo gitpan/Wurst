@@ -1,7 +1,7 @@
 /*
  * 5 April 2002
  * Definitions of pieces of array for ContactEFunction.
- * rcsid = $Id: cp_cc_allat+0.h,v 1.1 2002/04/04 23:18:57 torda Exp $
+ * rcsid = $Id: cp_cc_allat+0.h,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 
 #ifndef CP_ALLAT_H

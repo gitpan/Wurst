@@ -4,7 +4,7 @@
  * The aim is to get the amino acid frequency at each position.
  * Later, we can mess with any other information in the file.
  *
- * $Id: read_blst.c,v 1.14 2007/09/28 12:11:58 torda Exp $
+ * $Id: read_blst.c,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  */
 
 #include <stdio.h>

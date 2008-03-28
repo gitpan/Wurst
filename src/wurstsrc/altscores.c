@@ -1,7 +1,7 @@
 /*
  * 29 March 2005
  * Gundolf Schenk
- * $Id: altscores.c,v 1.9 2007/09/28 12:10:50 torda Exp $
+ * $Id: altscores.c,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 
 #define _XOPEN_SOURCE 500

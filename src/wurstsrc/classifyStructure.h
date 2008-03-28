@@ -1,6 +1,6 @@
 /*
  * Gundolf code. Mid 2005
- * rcsid = $Id: classifyStructure.h,v 1.3 2006/06/22 11:01:32 lai Exp $
+ * rcsid = $Id: classifyStructure.h,v 1.1 2007/09/28 16:57:05 mmundry Exp $
  */
 
 #ifndef CLASSIFYSTRUCTURE_H

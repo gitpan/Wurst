@@ -4,7 +4,7 @@
  * The numbers are gaussian distributed, although it is not clear
  * why this is useful. A uniform distribution should also be OK.
  *
- * $Id: score_rand.c,v 1.2 2007/09/28 12:11:57 torda Exp $
+ * $Id: score_rand.c,v 1.1 2007/09/28 16:57:08 mmundry Exp $
  */
 
 #include <stdlib.h>

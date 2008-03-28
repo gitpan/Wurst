@@ -1,6 +1,6 @@
 /*
  * 10 January 2002
- * rcsid = $Id: rmacros.h,v 1.1 2002/02/07 07:33:24 torda Exp $
+ * rcsid = $Id: rmacros.h,v 1.1 2007/09/28 16:57:07 mmundry Exp $
  */
 
 #ifndef RMACROS_H

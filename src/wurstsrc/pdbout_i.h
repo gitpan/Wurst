@@ -1,7 +1,7 @@
 /*
  * 30 Oct 2001
  * Interface to pdb writing routines.
- * rcsid = $Id: pdbout_i.h,v 1.3 2004/01/29 11:14:22 procter Exp $
+ * rcsid = $Id: pdbout_i.h,v 1.1 2007/09/28 16:57:09 mmundry Exp $
  */
 #ifndef PDBOUT_I_H
 #define PDBOUT_I_H

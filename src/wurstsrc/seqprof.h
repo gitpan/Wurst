@@ -3,7 +3,7 @@
  * If you think you have to know about the internal structure of
  * a sequence profile, then you have to include this file.
  * Can only be included after stdlib.h.
- * rcsid = $Id: seqprof.h,v 1.2 2004/02/02 10:25:50 torda Exp $
+ * rcsid = $Id: seqprof.h,v 1.1 2007/09/28 16:57:08 mmundry Exp $
  */
 #ifndef SEQPROF_H
 #define SEQPROF_H

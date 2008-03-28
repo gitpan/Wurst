@@ -1,6 +1,6 @@
 /*
  * 13 nov 2003
- * rcsid = $Id: read_blst.h,v 1.4 2005/01/05 10:27:19 torda Exp $
+ * rcsid = $Id: read_blst.h,v 1.1 2007/09/28 16:57:03 mmundry Exp $
  */
 #ifndef READ_BLAST_H
 #define READ_BLAST_H

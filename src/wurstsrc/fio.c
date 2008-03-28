@@ -2,7 +2,7 @@
  * 22 March 2001
  * Lower level file handling functions. They may go beyond the
  * ANSI standard, but they must be posix.
- * $Id: fio.c,v 1.6 2007/09/28 12:12:01 torda Exp $
+ * $Id: fio.c,v 1.1 2007/09/28 16:57:04 mmundry Exp $
  */
 
 #define _XOPEN_SOURCE 600 /* necessary to get posix_fadvise() */

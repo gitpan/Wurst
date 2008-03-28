@@ -12,7 +12,7 @@
  * both, but string matching is so much simpler, it is used to
  * quickly hop over large parts of the input file.
  *
- * $Id: read_ac.c,v 1.11 2007/09/28 12:11:59 torda Exp $
+ * $Id: read_ac.c,v 1.1 2007/09/28 16:57:07 mmundry Exp $
  */
 
 #define _XOPEN_SOURCE 600

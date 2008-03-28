@@ -8,7 +8,7 @@
  * 1. copy a string to the area
  * 2. append a string
  *
- * $Id: scratch.c,v 1.5 2007/09/28 12:11:56 torda Exp $
+ * $Id: scratch.c,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 
 

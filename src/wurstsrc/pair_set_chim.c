@@ -4,7 +4,7 @@
  * like chimera.
  * We will take a "pair_set" and filename.
  *
- * $Id: pair_set_chim.c,v 1.5 2007/09/28 12:12:00 torda Exp $
+ * $Id: pair_set_chim.c,v 1.1 2007/09/28 16:57:10 mmundry Exp $
  */
 
 #define _XOPEN_SOURCE 500 /* This is probably a requirement for some of */

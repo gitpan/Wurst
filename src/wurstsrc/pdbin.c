@@ -1,7 +1,7 @@
 /*
  * 23 Mar 2002
  * Read a pdb file. Return a model.
- * $Id: pdbin.c,v 1.25 2007/09/28 12:11:59 torda Exp $
+ * $Id: pdbin.c,v 1.1 2007/09/28 16:57:13 mmundry Exp $
  */
 
 #include <ctype.h>

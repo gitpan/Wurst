@@ -1,7 +1,7 @@
 /*
  * 13 June 2005
  * Interface for reading autoclass sequence classification.
- * rcsid = $Id: read_ac_i.h,v 1.2 2006/06/22 11:01:33 lai Exp $
+ * rcsid = $Id: read_ac_i.h,v 1.1 2007/09/28 16:57:08 mmundry Exp $
  */
 #ifndef READ_AC_I_H
 #define READ_AC_I_H

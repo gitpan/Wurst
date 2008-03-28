@@ -1,6 +1,6 @@
 /*
  * 21 March 2001
- * $Id: str.c,v 1.5 2007/09/28 12:11:56 torda Exp $
+ * $Id: str.c,v 1.1 2007/09/28 16:57:06 mmundry Exp $
  */
 #include <ctype.h>
 #include <stdio.h>

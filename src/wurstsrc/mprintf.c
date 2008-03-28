@@ -1,7 +1,17 @@
 /*
  * 21 March 2001
- * Printf wrapper to allow us to control I/O
- * $Id: mprintf.c,v 1.2 2007/09/28 12:12:00 torda Exp $
+ * Wrappers for most common I/O to stdout and stderr. We use them
+ * for two reasons:
+ *  1. If, in the future, you want special handling of messages
+ * (write to syslog, a dialog box, ...), it can be implemented
+ * here.
+ *  2. For code that will be meshed with a interpreter, there may
+ * be special requirements. Tcl, for example, does not like it if
+ * routines run around writing to stdout or stderr.
+ * The overhead:
+ * For most of the functions, this really is a very simple
+ * wrapper with no real processing.
+ * $Id: mprintf.c,v 1.2 2008/01/05 16:49:34 torda Exp $
  */
 
 #include <errno.h>
@@ -12,13 +22,10 @@
 #include "mprintf.h"
 
 /* ---------------- err_printf --------------------------------
- * This prints out the name of the programme, protein file name
- * and then the rest of the arguments to printf.
- * Interesting quirk.. If we are being called (under linux anyway),
- * the calls to Tcl bits, make a mess of "errno". This means that
- * a subsequent call to perror/mperror will produce rubbish. For
- * that reason, we store errno on function entry and take the
- * liberty of setting it before we return.
+ * This writes the first argument to stderr, then sends the rest
+ * of the arguments, without change as in fprintf (stderr, stuf...).
+ * The idea is that a function should print error messages like
+ * err_printf (funcname,  "printf_string", printf arg list);
  */
 int
 err_printf (const char *fnc_name, const char *fmt, ...)
@@ -33,10 +40,7 @@ err_printf (const char *fnc_name, const char *fmt, ...)
 }
 
 /* ---------------- mprintf -----------------------------------
- * printf() wrapper which allows us to send output through Tcl's
- * Tcl_write routine.  Unfortunately, it is not a good idea to
- * store "outchannel" below.  If the user redirects output, we
- * want this to be picked up.
+ * Pure wrapper for printf. Output goes to stdout unchanged.
  */
 int
 mprintf (const char *fmt, ...)
@@ -50,8 +54,7 @@ mprintf (const char *fmt, ...)
     return ret;
 }
 /* ---------------- mputchar ----------------------------------
- * The tcl routine expects a char buffer, but putchar() type
- * routines operate on int's.  Hence the casting below.
+ * Wrapper for putchar().
  */
 int
 mputchar ( int c)
@@ -61,9 +64,6 @@ mputchar ( int c)
 
 /* ---------------- mfprintf  ---------------------------------
  * Wrapper for fprintf.
- * If we are writing to stdout, use mprintf so our application
- * works under Tcl.  If we are writing to some other file
- * pointer, just call vfprintf to do the work.
  */
 int
 mfprintf ( FILE *fp, const char *fmt, ...)
@@ -78,11 +78,7 @@ mfprintf ( FILE *fp, const char *fmt, ...)
 }
 
 /* ---------------- mfputc ------------------------------------
- * Wrapper for putc ().
- * If we are not writing to stdout, then don't interfere. Just
- * call standard putc().
- * If we are writing to stdout, then steal force use of Tcl
- * routines via mputchar.
+ * Wrapper for fputc ().
  */
 int
 mfputc (int c, FILE *fp)
@@ -106,6 +102,7 @@ int mputs (const char *s)
 {
     return (mprintf ("%s\n", s));
 }
+
 /* ---------------- mfputs ------------------------------------
  *
  */

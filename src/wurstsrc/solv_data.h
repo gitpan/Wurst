@@ -1,6 +1,6 @@
 /*
  * 27 Oct 2005
- * rcsid = $Id: solv_data.h,v 1.1 2005/12/05 12:26:11 torda Exp $
+ * rcsid = $Id: solv_data.h,v 1.1 2007/09/28 16:57:11 mmundry Exp $
  */
 #ifndef SOLV_DATA_H
 #define SOLV_DATA_H

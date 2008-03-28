@@ -1,5 +1,5 @@
 /*
- * $Id: cmp_dmat_i.h,v 1.4 2007/09/28 12:12:02 torda Exp $
+ * $Id: cmp_dmat_i.h,v 1.1 2007/09/28 16:57:03 mmundry Exp $
  */
 
 #ifndef CMP_DMAT_I_H

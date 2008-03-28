@@ -1,6 +1,6 @@
 /*
  * 10 Jan 2002
- * rcsid = $Id: param_fx_i.h,v 1.3 2002/04/09 07:29:48 torda Exp $
+ * rcsid = $Id: param_fx_i.h,v 1.1 2007/09/28 16:57:07 mmundry Exp $
  */
 
 #ifndef PARAM_FX_I_H

@@ -1,7 +1,7 @@
 /*
  * 14 June 2005
  * Functions for handling class membership probability vectors.
- * $Id: prob_vec.c,v 1.24 2007/09/28 12:11:59 torda Exp $
+ * $Id: prob_vec.c,v 1.1 2007/09/28 16:57:09 mmundry Exp $
  */
 
 #include <errno.h>
