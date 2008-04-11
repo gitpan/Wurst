@@ -3,7 +3,7 @@
  * These are silly functions, but they are for testing
  * installation.
  *
- * $Id: silly.c,v 1.1 2007/09/28 16:57:04 mmundry Exp $
+ * $Id: silly.c,v 1.2 2008/04/11 13:53:04 mmundry Exp $
  */
 
 
@@ -26,7 +26,7 @@ func_int ()
 float
 func_float ()
 {
-    return 3.14;
+    return 3.125;
 }
 
 /* ---------------- func_char  ---------------------------------

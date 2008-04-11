@@ -1,7 +1,7 @@
 /*
  * 27 Aug 2001
  * Routines for declaring, killing, copying and printing matrices.
- * $Id: matrix.c,v 1.1 2007/09/28 16:57:11 mmundry Exp $
+ * $Id: matrix.c,v 1.2 2008/04/11 10:18:08 torda Exp $
  */
 
 #include <float.h>  /* for FLT_MAX */
@@ -229,7 +229,7 @@ dump_uc_matrix (unsigned char **mat,
  * for, but the last pointer should be of type char *p, since it
  * seems to be illegal to do pointer arithmetic on void *.
  */
-void ***
+void *
 d3_array( const size_t n1, const size_t n2, const size_t n3, const size_t size)
 {
     void ***array;

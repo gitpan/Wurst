@@ -1,6 +1,6 @@
 /*
  * 27 Aug 2001
- * rcsid = $Id: matrix.h,v 1.1 2007/09/28 16:57:06 mmundry Exp $
+ * rcsid = $Id: matrix.h,v 1.2 2008/04/11 10:18:55 torda Exp $
  */
 #ifndef MATRIX_H
 #define MATRIX_H
@@ -34,7 +34,7 @@ crop_i_matrix (int **pairs, const size_t n_rows, const size_t n_cols);
                           const size_t n_cols);
 #endif /* want_print_uc_matrix */
 
-void ***d3_array( const size_t n1, const size_t n2, const size_t n3,
+void *d3_array( const size_t n1, const size_t n2, const size_t n3,
                   const size_t size);
 void kill_3d_array ( void ***p);
 

@@ -1,6 +1,6 @@
 /*
  * Read up a classification based on both structure and sequence.
- * $Id: read_ac_strct.c,v 1.2 2008/03/10 12:44:49 torda Exp $
+ * $Id: read_ac_strct.c,v 1.3 2008/04/11 11:33:30 torda Exp $
  */
 
 #define _XOPEN_SOURCE 500
@@ -235,6 +235,8 @@ aa_strct_2_prob_vec (struct coord *structure,
                      const struct aa_strct_clssfcn *cmodel, const int norm)
 {
     const char *this_sub = "aa_strct_2_prob_vec";
+    struct prob_vec *pvec;
+    struct seq *seqtmp;
     static int debug_n = 1;
     if (debug_n) {
         debug_n = 0;
@@ -248,8 +250,11 @@ aa_strct_2_prob_vec (struct coord *structure,
         err_printf (this_sub, "No Classification Input\n");
         return NULL;
     }
-    return seq_strct_2_prob_vec (structure, coord_get_seq(structure), 0,
+    seqtmp = coord_get_seq (structure);
+    pvec= seq_strct_2_prob_vec (structure, seqtmp, 0,
                                  structure->size, cmodel, norm);
+    seq_destroy (seqtmp);
+    return pvec;
 }
 
 /* ---------------- prof_aa_strct_2_prob_vec  -------------------------

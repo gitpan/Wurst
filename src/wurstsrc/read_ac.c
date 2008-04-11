@@ -12,7 +12,7 @@
  * both, but string matching is so much simpler, it is used to
  * quickly hop over large parts of the input file.
  *
- * $Id: read_ac.c,v 1.1 2007/09/28 16:57:07 mmundry Exp $
+ * $Id: read_ac.c,v 1.2 2008/04/11 10:01:17 torda Exp $
  */
 
 #define _XOPEN_SOURCE 600
@@ -166,15 +166,22 @@ static size_t
 get_n_att (FILE *fp, char *buf, const int bufsiz)
 {
     size_t n_att = 1;
+    const char *this_sub = "get_n_att";
+    const char *parse_fail = "Failed at %s %d\n";
+    const char *look_for = "Looking for regex \"%s\"\n";
     const char *heading = "num                        description ";
-    /* const char *magic_line = "[0-9]+ .+ +[0-9]."; */
-    const char *magic_line = "[0-9]+  aa [0-9] +[0-9].[0-9]+";
+    const char *magic_line = "[0-9]+  aa *[0-9] +[0-9].[0-9]+";
 
-    if ( ! find_line (buf, bufsiz, fp, heading))
+    if ( ! find_line (buf, bufsiz, fp, heading)) {
+        err_printf (this_sub, parse_fail, __FILE__, __LINE__);
+        err_printf (this_sub, look_for, heading);
         return 0;
-    /* if ( !find_regex (buf, bufsiz, fp, magic_line, 3)) */
-    if ( !find_regex (buf, bufsiz, fp, magic_line, 20))
+    }
+    if ( ! find_regex (buf, bufsiz, fp, magic_line, 20)) {
+        err_printf (this_sub, parse_fail, __FILE__, __LINE__);
+        err_printf (this_sub, look_for, magic_line);
         return 0;
+    }
     while ( find_regex (buf, bufsiz, fp, magic_line, 1))
         n_att++;
     return n_att;
@@ -208,7 +215,7 @@ get_three_num (char *buf, regex_t *three_num,
         tmp = buf + pmatch->rm_so;
         d = strtod (tmp, NULL);
         if (errno && (d == 0.0)) {
-            err_printf (this_sub, "invalid float number %s\n", buf);
+            err_printf (this_sub, "invalid double number %s\n", buf);
             return EXIT_FAILURE;
         }
         buf += pmatch->rm_eo;
@@ -272,7 +279,7 @@ read_class (FILE *fp, char *buf, const int bufsiz,
     const char *s_next_aa     = "[a-zA-Z] [ .]{13}";
     const char *s_three_num   = "-*[0-9][.][0-9]+e[+-][0-9]+";
     /* const char *s_get_att_num = "[0-9]{2,} [DR] +S.+[a-zA-Z0-9] [.]{13}"; */
-    const char *s_get_att_num = "[0-9]{2,} [DR] +S.+aa ";
+    const char *s_get_att_num = "[0-9]{2,} [DR] +S.+aa";
     const char *broke_ijk     = "Broke looking for I-jk value in \"%s\"\n";
 
     if ( ! find_line (buf, bufsiz, fp, s_class_wt))
@@ -363,12 +370,13 @@ static struct aa_clssfcn *
 new_aa_clssfcn ( const size_t n_class, const size_t n_att)
 {
     struct aa_clssfcn *aa_clssfcn = E_MALLOC (sizeof (*aa_clssfcn));
+    size_t s, t;
     aa_clssfcn->n_class = n_class;
     aa_clssfcn->n_att   = n_att;
-
-    aa_clssfcn->log_pp = (float ***)
-        d3_array (n_class, n_att, MIN_AA, sizeof (float));
-    aa_clssfcn->class_wt = E_MALLOC (n_class * sizeof (float));
+    t = sizeof (aa_clssfcn->log_pp[0][0][0]);
+    aa_clssfcn->log_pp = d3_array (n_class, n_att, MIN_AA, t);
+    s = sizeof (aa_clssfcn->class_wt[0]);
+    aa_clssfcn->class_wt = E_MALLOC (n_class * s);
 #   ifdef fill_with_a_value_for_debugging
     {
         unsigned i, j, k;
@@ -533,6 +541,8 @@ computeMembershipAA (float **mship, struct seq *seq,
  * The probability vector routines are defined elsewhere since
  * they will be used by both sequence and structure based
  * functions.
+ * TODO: this function should be shut down, it is deprecated 
+ * TODO: use the function in read_ac_strct_i.h instead
  */
 struct prob_vec *
 seq_2_prob_vec (struct seq *seq, const struct aa_clssfcn *aa_clssfcn)
