@@ -12,8 +12,6 @@ pod/wurst.pod
 src/Makefile.PL
 src/Wurst.xs
 src/typemap
-src/Simplex/Simplex.pm
-src/Simplex/Simplex2.pm
 src/wurstsrc/CODE_RULES
 src/wurstsrc/Makefile.PL
 src/wurstsrc/TODO
