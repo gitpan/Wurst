@@ -2,10 +2,10 @@ MANIFEST
 Makefile.PL
 extras/testfiles/1JB0.pdb
 extras/testfiles/1jb0A.bin
-extras/testfiles/1jb0A.vec
+extras/testfiles/classfile
 lib/Wurst.pm
-README
 Changes
+README
 pod/coding.pod
 pod/server_notes
 pod/wurst.pod

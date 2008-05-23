@@ -7,7 +7,15 @@ use Wurst;
 
 $Coord=pdb_read ("extras/testfiles/1JB0.pdb", '', '');
 $Coord2=coord_read ("extras/testfiles/1jb0A.bin");
-$pvec = prob_vec_read("extras/testfiles/1jb0A.vec");
+
+
+$classfcn = aa_strct_clssfcn_read("extras/testfiles/classfile", 0.4);
+$pvecout = strct_2_prob_vec($Coord2, $classfcn);
+if(!prob_vec_write($pvecout, "1jb0A.bak")){
+ BAIL_OUT("prob_vec error");
+}
+
+$pvec = prob_vec_read("1jb0A.bak");
 
 ok (defined($Coord),"pdb_read");
 ok (defined($Coord2),"coord_read_read");

@@ -1,6 +1,6 @@
 /*
  * 23 Oct 2001
- * $Id: coord.c,v 1.1 2007/09/28 16:57:12 mmundry Exp $
+ * $Id: coord.c,v 1.3 2008/04/25 15:15:03 mmundry Exp $
  * The struct coord is a rather central item in this code. This
  * file gathers most of the routines for creating the structure,
  * filling out information and cleaning up. The details of the
@@ -215,7 +215,7 @@ error:
 
 /* ---------------- vrsn_int ----------------------------------
  * Convert a string like
- *      $Revision: 1.1 $ version
+ *      $Revision: 1.3 $ version
  * to a pair of integers, 1 and 10.
  */
 static int
@@ -401,6 +401,7 @@ coord_read_specific (const char *fname, const unsigned flags)
     enum yes_no do_sec_s;
     char inbuf [BUFSIZE];
     static unsigned char first = (char) 1;
+    extern const char *prog_bug;
     const char *mismatch = "Type mismatch, ";
     const char *this_sub = "coord_read_specific";
     const char *err_bin =
@@ -602,19 +603,27 @@ coord_read_specific (const char *fname, const unsigned flags)
 
     if ((flags & GET_COMPND) && (v.minor > 9)) {   /*read compound information*/
         unsigned compnd = 0;
-	if (fread(&compnd, sizeof(compnd), 1, fp) == 1) {
-            c->compnd_len = compnd;
-            if (c->compnd_len > 0) {
-                size_t to_mall = c->compnd_len * sizeof (c->compnd[0]);
-                c->compnd = E_MALLOC (to_mall);
-                t = fread_or_toss ((void *) &c->compnd, s, c->compnd_len,
-                                   fp, flags & GET_COMPND, fname, "compnd info", rev_byte_flag);
-                if ( t== EXIT_FAILURE)
-                    goto error_exit;
-                c->compnd[c->compnd_len-1]='\0';
+	if (fread(&compnd, sizeof(compnd), 1, fp) != 1)
+            goto error_exit;
+	if (rev_byte_flag) {
+            switch (sizeof (compnd)) {
+            case 2: BYTE_REVERSE_2 (compnd); break;
+            case 4: BYTE_REVERSE_4 (compnd); break;
+            default: err_printf (this_sub, prog_bug, __FILE__, __LINE__); goto error_exit;
             }
-        } /* else - maybe we should warn here - asked for compnd info */
-    }     /* but none found in file */
+        }
+            
+        c->compnd_len = compnd;
+        if (c->compnd_len > 0) {
+            size_t to_mall = c->compnd_len * sizeof (c->compnd[0]);
+            c->compnd = E_MALLOC (to_mall);
+            t = fread_or_toss ((void *) &c->compnd, s, c->compnd_len,
+                               fp, flags & GET_COMPND, fname, "compnd info", rev_byte_flag);
+            if ( t== EXIT_FAILURE)
+                goto error_exit;
+            c->compnd[c->compnd_len-1]='\0';
+        }
+    }
 
     file_clear_cache (fp);
     fclose (fp);

@@ -5,3 +5,6 @@ Revision history for Perl extension Wurst.
 
 0.51b Fri Apr 11 16:10:00 2008
 	- debugged the test system
+
+0.51c Fri May 23 16:00:00 2008
+        - Wurst now works on big endian machines

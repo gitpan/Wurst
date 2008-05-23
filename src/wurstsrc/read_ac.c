@@ -12,7 +12,7 @@
  * both, but string matching is so much simpler, it is used to
  * quickly hop over large parts of the input file.
  *
- * $Id: read_ac.c,v 1.2 2008/04/11 10:01:17 torda Exp $
+ * $Id: read_ac.c,v 1.3 2008/04/12 18:09:20 torda Exp $
  */
 
 #define _XOPEN_SOURCE 600
@@ -161,13 +161,17 @@ get_n_class (FILE *fp, char *buf, const int bufsiz)
 /* ---------------- get_n_att ---------------------------------
  * Keep reading the file and find the number of attributes in the
  * classification.
+ * There is a call to find_regex() below. This used to print an
+ * error when it did not find anything. Unfortunately, it the
+ * unified code, this may not be an error. We may be reading a
+ * file without sequence information.
  */
 static size_t
 get_n_att (FILE *fp, char *buf, const int bufsiz)
 {
     size_t n_att = 1;
     const char *this_sub = "get_n_att";
-    const char *parse_fail = "Failed at %s %d\n";
+    const char *parse_fail = "Failed at %s:%d\n";
     const char *look_for = "Looking for regex \"%s\"\n";
     const char *heading = "num                        description ";
     const char *magic_line = "[0-9]+  aa *[0-9] +[0-9].[0-9]+";
@@ -178,8 +182,10 @@ get_n_att (FILE *fp, char *buf, const int bufsiz)
         return 0;
     }
     if ( ! find_regex (buf, bufsiz, fp, magic_line, 20)) {
-        err_printf (this_sub, parse_fail, __FILE__, __LINE__);
-        err_printf (this_sub, look_for, magic_line);
+#       ifdef want_parse_error
+            err_printf (this_sub, parse_fail, __FILE__, __LINE__);
+            err_printf (this_sub, look_for, magic_line);
+#       endif /* want_parse_error */
         return 0;
     }
     while ( find_regex (buf, bufsiz, fp, magic_line, 1))
